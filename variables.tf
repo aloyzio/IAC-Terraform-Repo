@@ -13,3 +13,29 @@ variable "region" {
   default     = "us-east-1"
 }
 
+########################################
+variable "pub_subnetcidr" {
+  type        = string
+  description = "public subnet cidr"
+  default     = "10.0.2.0/24"
+}
+
+variable "priv_subnetcidr" {
+  type        = string
+  description = "private subnet cidr"
+  default     = "10.0.1.0/24"
+}
+
+variable "ami_id" {
+  type        = string
+  description = "instance ami"
+  default     = "ami-0022f774911c1d690"
+
+}
+
+variable "instance_type" {
+  type        = string
+  description = "intance type"
+  default     = "t2.micro"
+
+}
