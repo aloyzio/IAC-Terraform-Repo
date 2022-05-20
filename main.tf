@@ -11,9 +11,9 @@ resource "aws_vpc" "example" {
 }
 
 resource "aws_instance" "web" {
-  ami           = var.ami_id
   instance_type = var.instance_type
   subnet_id     = aws_subnet.public_subnet.id
+  ami           = data.aws_ami.server_ami.id
 
   tags = {
     Name = "ec2_instance"
@@ -21,9 +21,9 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  vpc_id     = local.vpc_id
-  cidr_block = var.pub_subnetcidr
-  availability_zone = data.aws_availability_zones.azs.names[0]
+  vpc_id                  = local.vpc_id
+  cidr_block              = var.pub_subnetcidr
+  availability_zone       = data.aws_availability_zones.azs.names[0]
   map_public_ip_on_launch = true
 
   tags = {
@@ -32,8 +32,8 @@ resource "aws_subnet" "public_subnet" {
 }
 
 resource "aws_subnet" "private_subnet" {
-  vpc_id     = local.vpc_id
-  cidr_block = var.priv_subnetcidr
+  vpc_id            = local.vpc_id
+  cidr_block        = var.priv_subnetcidr
   availability_zone = data.aws_availability_zones.azs.names[1]
 
   tags = {

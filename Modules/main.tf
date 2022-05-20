@@ -18,3 +18,30 @@ module "vpc" {
     Environment = "dev"
   }
 }
+# slice(data.aws_availability_zones.azs.names, 0, 3)
+
+# resource_name logica
+  
+/*variable "create_instance" {
+  type = bool
+  default = true
+# resource_name logical_name
+
+resource = "aws_instance" "web" {
+  count = var.create_instance ? 1 : 0
+  
+  ami  = data
+  instance_type = "t3.micro"
+  subnet_id = aws_subnet.public_subnet.id
+
+  tags = {
+    Name = "terraform"
+  }
+ [] list
+ {} dictionary
+ "" string
+ bool true of false
+ {[]} map of list
+ {[""]} map of list of strings  
+}
+*/
