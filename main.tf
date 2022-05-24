@@ -1,12 +1,26 @@
 
-#local
 locals {
-  vpc_id = aws_vpc.example.id
+  vpc_id = aws_vpc.kojitechs.id
+
+  mandatory_tag = {
+    line_of_business        = "hospital"
+    ado                     = "max"
+    tier                    = "WEB"
+    operational_environment = upper(terraform.workspace)
+    tech_poc_primary        = "udu.udu25@gmail.com"
+    tech_poc_secondary      = "udu.udu25@gmail.com"
+    application             = "http"
+    builder                 = "udu.udu25@gmail.com"
+    application_owner       = "kojitechs.com"
+    vpc                     = "WEB"
+    cell_name               = "WEB"
+    component_name          = "kojitechs"
+  }
 }
 
 # Child Module
 # Create a VPC
-resource "aws_vpc" "example" {
+resource "aws_vpc" "kojitechs" {
   cidr_block = var.cidr_block
 }
 
@@ -40,3 +54,4 @@ resource "aws_subnet" "private_subnet" {
     Name = "private_subnet"
   }
 }
+

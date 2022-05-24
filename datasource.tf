@@ -30,3 +30,8 @@ data "aws_ami" "server_ami" {
 }
 
 #data.aws_ami.server_ami
+#data sources
+#variables ()
+#count
+#for_each
+#syntaxing
